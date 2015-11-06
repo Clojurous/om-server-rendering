@@ -10,6 +10,7 @@
   (let [js (doto (.getEngineByName (ScriptEngineManager.) "nashorn")
              ;; React requires either "window" or "global" to be defined.
              (.eval "var global = this")
+             (.eval "var window = this")
              ;; parse the compiled js file
              (.eval (-> "public/framework.js"
                         io/resource

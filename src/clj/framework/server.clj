@@ -44,7 +44,7 @@
   "Starts the application server."
   []
   (let [port (Integer/parseInt (or (System/getenv "PORT")
-                                   "8080"))]
+                                   "8090"))]
     (reset! server (run-server application {:port port
                                             :join? false}))))
 

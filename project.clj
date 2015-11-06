@@ -1,4 +1,4 @@
-(defproject framework "0.1.0-SNAPSHOT"
+(defproject om-next-rendering "0.1.0-SNAPSHOT"
   :description "A clojure(script) framework"
   :url "http://example.com/FIXME"
 
@@ -8,9 +8,9 @@
             :comments "Same as Clojure"}
 
   :dependencies [;; clojure
-                 [org.clojure/clojure "1.6.0"]
-                 [org.clojure/clojurescript "0.0-2227"]
-                 [org.clojure/core.async "0.1.267.0-0d7780-alpha"]
+                 [org.clojure/clojure "1.7.0"]
+                 [org.clojure/clojurescript "1.7.122"]
+                 ;[org.clojure/core.async "0.1.267.0-0d7780-alpha"]
 
                  ;; server
                  [http-kit "2.1.18"]
@@ -21,20 +21,23 @@
                  [cider/cider-nrepl "0.7.0-SNAPSHOT"]
 
                  ;; om
-                 [om "0.6.4"]
-                 [sablono "0.2.17"]
-                 [ankha "0.1.3"]
-                 [shodan "0.3.0"]]
+                 [cljsjs/react "0.14.0-1"]
+                 [cljsjs/react-dom "0.14.0-1"]
+                 [org.omcljs/om "1.0.0-alpha12" :exclusions [cljsjs/react cljsjs/react-dom]]
+                 [sablono "0.3.6"]
+                 [shodan "0.4.2"]
+                 ]
 
   :plugins [[lein-cljsbuild "1.0.3"]]
   :hooks [leiningen.cljsbuild]
 
   :cljsbuild {:builds [{:source-paths ["src/cljs"]
-                  :compiler {:preamble ["react/react.min.js"]
+                  :compiler {
+                             ;:preamble ["react/react.min.js"]
                              :output-to "resources/public/framework.js"
                              :output-dir "resources/public/out"
                              :source-map "resources/public/framework.js.map"
-                             :optimizations :whitespace}}]}
+                             :optimizations :simple}}]}
 
   :source-paths ["src/clj"]
   :resource-paths ["resources"]

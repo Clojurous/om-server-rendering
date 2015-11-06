@@ -1,4 +1,7 @@
-# Om Server Rendering
+# Om-Next Server Rendering
+
+A slightly modified version of [pleasetrythisathome/om-server-rendering](https://github.com/pleasetrythisathome/om-server-rendering) that uses Om.Next (alpha) instead of Om.Previous (pre-alpha).
+
 
 A stripped down example of [omelette](https://github.com/DomKM/omelette). Omelette's an awesome application and a great example of a number of other best practices, but I wanted a minimal test case for Om server rendering via [Nashorn](http://openjdk.java.net/projects/nashorn/). Here it is.
 
